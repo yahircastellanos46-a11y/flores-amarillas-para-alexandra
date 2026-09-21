@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flores amarillas para ti 🌻💛</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        overflow: hidden;
+        font-family: Georgia, serif;
+        background: linear-gradient(#071b12, #123d20, #071b12);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contenido {
+        position: relative;
+        z-index: 5;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: clamp(35px, 8vw, 70px);
+        color: #ffd92f;
+        text-shadow: 0 0 15px #ffcf00, 0 0 35px #ffae00;
+        animation: brillo 2s infinite alternate;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: clamp(20px, 4vw, 30px);
+        max-width: 700px;
+        line-height: 1.5;
+        text-shadow: 0 2px 8px black;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        background: #ffd21c;
+        color: #553900;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 0 20px #ffc400;
+        transition: .3s;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+
+    .flor {
+        position: absolute;
+        bottom: -100px;
+        font-size: 70px;
+        animation: subir linear forwards;
+        z-index: 2;
+    }
+
+    .petalo {
+        position: absolute;
+        top: -50px;
+        font-size: 25px;
+        animation: caer linear infinite;
+        z-index: 1;
+    }
+
+    .estrella {
+        position: absolute;
+        color: #fff4a3;
+        animation: parpadear 2s infinite alternate;
+    }
+
+    @keyframes subir {
+        from {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-120vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes caer {
+        0% {
+            transform: translateY(-50px) rotate(0deg);
+            opacity: 0;
+        }
+        15% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes brillo {
+        from {
+            text-shadow: 0 0 10px #ffdb38;
+        }
+        to {
+            text-shadow: 0 0 30px #fff000, 0 0 60px #ffb300;
+        }
+    }
+
+    @keyframes parpadear {
+        from { opacity: .2; }
+        to { opacity: 1; }
+    }
+
+    .mensaje {
+        display: none;
+        margin-top: 20px;
+        font-size: 22px;
+        color: #ffe76b;
+        animation: aparecer 1s ease;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: scale(.5);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="contenido">
+    <h1>🌻 Flores amarillas para ti 🌻</h1>
+
+    <p>
+        Porque hay personas que hacen que todo florezca,
+        y tú eres una de ellas. Y espero si le gusten mi chaparrita lo hice con mucho amor hermosa 🥺 💛
+    </p>
+
+    <button onclick="mostrarMensaje()">
+        💛 Tengo algo para ti 💛
+    </button>
+
+    <div class="mensaje" id="mensaje">
+        Espero que estas flores te recuerden lo especial que eres. 🌻✨
+        <br><br>
+        Con mucho cariño. 💛
+    </div>
+</div>
+
+<script>
+    // Crear flores que suben
+    function crearFlor() {
+        const flor = document.createElement("div");
+        flor.className = "flor";
+        flor.innerHTML = "🌻";
+
+        flor.style.left = Math.random() * 100 + "vw";
+        flor.style.animationDuration = (5 + Math.random() * 5) + "s";
+        flor.style.fontSize = (40 + Math.random() * 50) + "px";
+
+        document.body.appendChild(flor);
+
+        setTimeout(() => {
+            flor.remove();
+        }, 10000);
+    }
+
+    setInterval(crearFlor, 700);
+
+
+    // Crear pétalos
+    function crearPetalo() {
+        const petalo = document.createElement("div");
+        petalo.className = "petalo";
+        petalo.innerHTML = "🌼";
+
+        petalo.style.left = Math.random() * 100 + "vw";
+        petalo.style.animationDuration = (5 + Math.random() * 7) + "s";
+        petalo.style.fontSize = (15 + Math.random() * 20) + "px";
+
+        document.body.appendChild(petalo);
+
+        setTimeout(() => {
+            petalo.remove();
+        }, 12000);
+    }
+
+    setInterval(crearPetalo, 500);
+
+
+    // Estrellitas
+    for (let i = 0; i < 30; i++) {
+        const estrella = document.createElement("div");
+        estrella.className = "estrella";
+        estrella.innerHTML = "✦";
+
+        estrella.style.left = Math.random() * 100 + "vw";
+        estrella.style.top = Math.random() * 100 + "vh";
+        estrella.style.fontSize = (5 + Math.random() * 15) + "px";
+        estrella.style.animationDelay = Math.random() * 2 + "s";
+
+        document.body.appendChild(estrella);
+    }
+
+
+    // Mensaje secreto
+    function mostrarMensaje() {
+        document.getElementById("mensaje").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
