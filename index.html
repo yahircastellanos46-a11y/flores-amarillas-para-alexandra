@@ -3,232 +3,608 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Alexandritis mire flores amarillas para ti 🌻💛</title>
+
+<title>Para ti 💛</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        min-height: 100vh;
-        overflow: hidden;
-        font-family: Georgia, serif;
-        background: linear-gradient(#071b12, #123d20, #071b12);
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .contenido {
-        position: relative;
-        z-index: 5;
-        padding: 30px;
-    }
-
-    h1 {
-    font-size: clamp(55px, 15vw, 130px);
-    color: #ffd92f;
-    text-shadow:
-        0 0 10px #fff000,
-        0 0 25px #ffcf00,
-        0 0 50px #ff9900;
-    animation: brillo 2s infinite alternate;
-    margin-bottom: 10px;
-    letter-spacing: 5px;
+*{
+    box-sizing:border-box;
 }
 
-    p {
-        font-size: clamp(20px, 4vw, 30px);
-        max-width: 700px;
-        line-height: 1.5;
-        text-shadow: 0 2px 8px black;
+body{
+    margin:0;
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:Georgia,serif;
+    background:linear-gradient(135deg,#fffde7,#fff3a0,#fff8d6);
+    color:#5a4300;
+}
+
+/* PÉTALOS */
+.petal{
+    position:fixed;
+    top:-30px;
+    width:13px;
+    height:19px;
+    background:linear-gradient(135deg,#fff36b,#e8a900);
+    border-radius:70% 20% 70% 20%;
+    pointer-events:none;
+    animation:caer linear infinite;
+    z-index:10;
+}
+
+@keyframes caer{
+    0%{
+        transform:translateY(-30px) rotate(0);
+        opacity:0;
+    }
+    15%{
+        opacity:.8;
+    }
+    100%{
+        transform:translateY(110vh) translateX(100px) rotate(500deg);
+        opacity:0;
+    }
+}
+
+/* CONTENEDOR */
+.contenedor{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+}
+
+.carta{
+    width:min(900px,100%);
+    padding:45px 25px;
+    text-align:center;
+    border-radius:35px;
+    background:rgba(255,255,255,.62);
+    box-shadow:0 25px 80px rgba(120,80,0,.2);
+    backdrop-filter:blur(10px);
+}
+
+h1{
+    font-size:clamp(2.5rem,8vw,5rem);
+    margin:5px 0;
+    color:#b77a00;
+}
+
+.subtitulo{
+    font-size:1.1rem;
+    line-height:1.7;
+}
+
+/* RAMO */
+.ramo{
+    height:330px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:10px;
+    margin:15px auto;
+    cursor:pointer;
+}
+
+/* ROSA */
+.rosa{
+    position:relative;
+    width:125px;
+    height:300px;
+    animation:mover 4s ease-in-out infinite;
+}
+
+.rosa:nth-child(2){
+    animation-delay:-1s;
+    transform:scale(1.12);
+}
+
+.rosa:nth-child(3){
+    animation-delay:-2s;
+    transform:scale(.95);
+}
+
+@keyframes mover{
+    0%,100%{
+        transform:rotate(-2deg);
+    }
+    50%{
+        transform:rotate(3deg);
+    }
+}
+
+/* TALLO */
+.tallo{
+    position:absolute;
+    width:8px;
+    height:210px;
+    left:58px;
+    top:80px;
+    border-radius:10px;
+    background:linear-gradient(90deg,#285b2c,#72a94d,#285b2c);
+}
+
+/* HOJAS */
+.hoja{
+    position:absolute;
+    width:65px;
+    height:30px;
+    background:linear-gradient(135deg,#75a94c,#285b2c);
+    border-radius:100% 0 100% 0;
+}
+
+.hoja1{
+    left:2px;
+    top:170px;
+    transform:rotate(-25deg);
+}
+
+.hoja2{
+    left:55px;
+    top:205px;
+    transform:scaleX(-1) rotate(-25deg);
+}
+
+/* FLOR */
+.flor{
+    position:absolute;
+    width:110px;
+    height:110px;
+    left:7px;
+    top:0;
+    filter:drop-shadow(0 12px 12px rgba(120,80,0,.25));
+}
+
+/* PÉTALOS DE LA ROSA */
+.petalo{
+    position:absolute;
+    width:70px;
+    height:75px;
+    left:20px;
+    top:17px;
+    border-radius:55% 45% 60% 40%;
+
+    background:
+    radial-gradient(
+        circle at 35% 25%,
+        #fffcc0 0 7%,
+        transparent 22%
+    ),
+    linear-gradient(
+        145deg,
+        #fff36c,
+        #ffd22e 45%,
+        #e6a000
+    );
+
+    box-shadow:
+    inset 5px 5px 10px rgba(255,255,220,.5),
+    inset -6px -7px 10px rgba(150,90,0,.25);
+}
+
+.p1{transform:rotate(0deg);}
+.p2{transform:rotate(45deg);}
+.p3{transform:rotate(90deg);}
+.p4{transform:rotate(135deg);}
+.p5{transform:rotate(180deg);}
+.p6{transform:rotate(225deg);}
+.p7{transform:rotate(270deg);}
+
+/* CENTRO */
+.centro{
+    position:absolute;
+    width:40px;
+    height:40px;
+    left:35px;
+    top:35px;
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        #fff07a 0 10%,
+        #e2a000 12% 30%,
+        #ffd83d 32% 55%,
+        #c77d00 60%
+    );
+
+    z-index:5;
+}
+
+/* MENSAJES */
+.mensaje{
+    max-width:700px;
+    margin:20px auto;
+    padding:25px;
+    border-radius:25px;
+    background:rgba(255,249,210,.8);
+
+    opacity:0;
+    transform:translateY(20px);
+
+    transition:all .8s ease;
+}
+
+.mensaje.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.mensaje h2{
+    color:#a36b00;
+    font-size:2rem;
+}
+
+.mensaje p{
+    font-size:1.15rem;
+    line-height:1.8;
+}
+
+.instruccion{
+    color:#80620d;
+    animation:pulso 2s infinite;
+}
+
+@keyframes pulso{
+    50%{
+        opacity:.4;
+    }
+}
+
+/* FOTO */
+.foto{
+    display:none;
+    margin:30px auto;
+    max-width:550px;
+    animation:aparecer 1s ease;
+}
+
+.foto.visible{
+    display:block;
+}
+
+.foto img{
+    width:100%;
+    border-radius:25px;
+    padding:8px;
+
+    background:linear-gradient(
+        135deg,
+        #fff17a,
+        #d89c00,
+        #fff7a8
+    );
+
+    box-shadow:0 20px 50px rgba(100,70,0,.25);
+}
+
+.foto p{
+    font-size:1.2rem;
+    line-height:1.7;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.9);
     }
 
-    button {
-        margin-top: 20px;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 30px;
-        background: #ffd21c;
-        color: #553900;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 0 20px #ffc400;
-        transition: .3s;
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* BOTÓN */
+button{
+    border:none;
+    padding:14px 25px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ffe66b,#f2b800);
+    color:#604600;
+    font-family:inherit;
+    font-size:1rem;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(120,80,0,.2);
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* CELULAR */
+@media(max-width:600px){
+
+    .carta{
+        padding:30px 15px;
     }
 
-    button:hover {
-        transform: scale(1.1);
+    .ramo{
+        transform:scale(.75);
+        margin:-25px auto;
     }
 
-    .flor {
-        position: absolute;
-        bottom: -100px;
-        font-size: 70px;
-        animation: subir linear forwards;
-        z-index: 2;
+    h1{
+        font-size:2.7rem;
     }
 
-    .petalo {
-        position: absolute;
-        top: -50px;
-        font-size: 25px;
-        animation: caer linear infinite;
-        z-index: 1;
+    .mensaje p{
+        font-size:1rem;
     }
-
-    .estrella {
-        position: absolute;
-        color: #fff4a3;
-        animation: parpadear 2s infinite alternate;
-    }
-
-    @keyframes subir {
-        from {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(-120vh) rotate(360deg);
-            opacity: 0;
-        }
-    }
-
-    @keyframes caer {
-        0% {
-            transform: translateY(-50px) rotate(0deg);
-            opacity: 0;
-        }
-        15% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(110vh) rotate(360deg);
-            opacity: 0;
-        }
-    }
-
-    @keyframes brillo {
-        from {
-            text-shadow: 0 0 10px #ffdb38;
-        }
-        to {
-            text-shadow: 0 0 30px #fff000, 0 0 60px #ffb300;
-        }
-    }
-
-    @keyframes parpadear {
-        from { opacity: .2; }
-        to { opacity: 1; }
-    }
-
-    .mensaje {
-        display: none;
-        margin-top: 20px;
-        font-size: 22px;
-        color: #ffe76b;
-        animation: aparecer 1s ease;
-    }
-
-    @keyframes aparecer {
-        from {
-            opacity: 0;
-            transform: scale(.5);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="contenido">
-    <h1>🌻 Flores amarillas para ti 🌻</h1>
+<!-- PÉTALOS -->
+<script>
 
-    <p>
-        Porque hay personas que hacen que todo florezca,
-        y tú eres una de ellas. Y espero si le gusten mi chaparrita lo hice con mucho amor hermosa 🥺 💛
-    </p>
+for(let i=0;i<35;i++){
 
-    <button onclick="mostrarMensaje()">
-        💛 Tengo algo para ti 💛
-    </button>
+    const petalo=document.createElement("div");
 
-    <div class="mensaje" id="mensaje">
-        Espero que estas flores te recuerden lo especial que eres, quizas no tengo dinero para comprarte unas pero esto es con todo mi amor 🌻✨
-        <br><br>
-        Con mucho cariño. 💛
-    </div>
+    petalo.className="petal";
+
+    petalo.style.left=Math.random()*100+"vw";
+
+    petalo.style.animationDuration=
+        (5+Math.random()*8)+"s";
+
+    petalo.style.animationDelay=
+        (-Math.random()*10)+"s";
+
+    petalo.style.transform=
+        `scale(${.5+Math.random()})`;
+
+    document.body.appendChild(petalo);
+}
+
+</script>
+
+
+<div class="contenedor">
+
+<div class="carta">
+
+<div class="instruccion">
+    ✨ Tengo algo para ti ✨
 </div>
 
+<h1>Rosas amarillas 💛</h1>
+
+<p class="subtitulo">
+    Haz clic en las rosas y descubre el mensaje poco a poco...
+</p>
+
+
+<!-- RAMO -->
+
+<div class="ramo" id="ramo">
+
+<!-- ROSA 1 -->
+<div class="rosa">
+
+<div class="flor">
+<div class="petalo p1"></div>
+<div class="petalo p2"></div>
+<div class="petalo p3"></div>
+<div class="petalo p4"></div>
+<div class="petalo p5"></div>
+<div class="petalo p6"></div>
+<div class="petalo p7"></div>
+<div class="centro"></div>
+</div>
+
+<div class="tallo"></div>
+<div class="hoja hoja1"></div>
+<div class="hoja hoja2"></div>
+
+</div>
+
+
+<!-- ROSA 2 -->
+<div class="rosa">
+
+<div class="flor">
+<div class="petalo p1"></div>
+<div class="petalo p2"></div>
+<div class="petalo p3"></div>
+<div class="petalo p4"></div>
+<div class="petalo p5"></div>
+<div class="petalo p6"></div>
+<div class="petalo p7"></div>
+<div class="centro"></div>
+</div>
+
+<div class="tallo"></div>
+<div class="hoja hoja1"></div>
+<div class="hoja hoja2"></div>
+
+</div>
+
+
+<!-- ROSA 3 -->
+<div class="rosa">
+
+<div class="flor">
+<div class="petalo p1"></div>
+<div class="petalo p2"></div>
+<div class="petalo p3"></div>
+<div class="petalo p4"></div>
+<div class="petalo p5"></div>
+<div class="petalo p6"></div>
+<div class="petalo p7"></div>
+<div class="centro"></div>
+</div>
+
+<div class="tallo"></div>
+<div class="hoja hoja1"></div>
+<div class="hoja hoja2"></div>
+
+</div>
+
+</div>
+
+
+<div class="instruccion" id="indicacion">
+🌼 Haz clic en las rosas
+</div>
+
+
+<!-- MENSAJE -->
+
+<div class="mensaje" id="mensaje">
+
+<h2 id="titulo"></h2>
+
+<p id="texto"></p>
+
+</div>
+
+
+<!-- FOTO -->
+
+<div class="foto" id="foto">
+
+<img src="foto.jpg" alt="Nuestro recuerdo">
+
+<p>
+💛 Hay momentos que se convierten en recuerdos,
+y recuerdos que siempre tendrán un lugar especial.
+<br><br>
+
+Gracias por cada momento bonito que hemos compartido.
+✨
+</p>
+
+</div>
+
+
+<button id="reiniciar" style="display:none;">
+Volver a comenzar 🌼
+</button>
+
+</div>
+
+</div>
+
+
 <script>
-    // Crear flores que suben
-    function crearFlor() {
-        const flor = document.createElement("div");
-        flor.className = "flor";
-        flor.innerHTML = "🌻";
 
-        flor.style.left = Math.random() * 100 + "vw";
-        flor.style.animationDuration = (5 + Math.random() * 5) + "s";
-        flor.style.fontSize = (40 + Math.random() * 50) + "px";
+const mensajes=[
 
-        document.body.appendChild(flor);
+{
+titulo:"Primera rosa 🌼",
+texto:"Esta primera rosa es para recordarte que a veces los detalles más pequeños pueden decir cosas enormes."
+},
 
-        setTimeout(() => {
-            flor.remove();
-        }, 10000);
-    }
+{
+titulo:"Segunda rosa 💛",
+texto:"Esta rosa representa todos esos momentos que poco a poco se convierten en recuerdos que uno guarda con cariño."
+},
 
-    setInterval(crearFlor, 700);
+{
+titulo:"Tercera rosa ✨",
+texto:"Y esta última es para ti, porque hay personas que hacen que ciertos días sean mucho más bonitos simplemente estando ahí."
+},
 
+{
+titulo:"Nuestro recuerdo 📸",
+texto:"Y ahora quiero dejarte un pequeño recuerdo de nosotros, porque esta sorpresa no estaría completa sin una parte de nuestra historia."
+}
 
-    // Crear pétalos
-    function crearPetalo() {
-        const petalo = document.createElement("div");
-        petalo.className = "petalo";
-        petalo.innerHTML = "🌼";
-
-        petalo.style.left = Math.random() * 100 + "vw";
-        petalo.style.animationDuration = (5 + Math.random() * 7) + "s";
-        petalo.style.fontSize = (15 + Math.random() * 20) + "px";
-
-        document.body.appendChild(petalo);
-
-        setTimeout(() => {
-            petalo.remove();
-        }, 12000);
-    }
-
-    setInterval(crearPetalo, 500);
+];
 
 
-    // Estrellitas
-    for (let i = 0; i < 30; i++) {
-        const estrella = document.createElement("div");
-        estrella.className = "estrella";
-        estrella.innerHTML = "✦";
+let paso=0;
 
-        estrella.style.left = Math.random() * 100 + "vw";
-        estrella.style.top = Math.random() * 100 + "vh";
-        estrella.style.fontSize = (5 + Math.random() * 15) + "px";
-        estrella.style.animationDelay = Math.random() * 2 + "s";
+const ramo=document.getElementById("ramo");
 
-        document.body.appendChild(estrella);
-    }
+const mensaje=document.getElementById("mensaje");
+
+const titulo=document.getElementById("titulo");
+
+const texto=document.getElementById("texto");
+
+const foto=document.getElementById("foto");
+
+const indicacion=document.getElementById("indicacion");
+
+const reiniciar=document.getElementById("reiniciar");
 
 
-    // Mensaje secreto
-    function mostrarMensaje() {
-        document.getElementById("mensaje").style.display = "block";
-    }
+ramo.addEventListener("click",()=>{
+
+if(paso>=mensajes.length) return;
+
+
+titulo.textContent=
+mensajes[paso].titulo;
+
+texto.textContent=
+mensajes[paso].texto;
+
+
+mensaje.classList.remove("visible");
+
+setTimeout(()=>{
+
+mensaje.classList.add("visible");
+
+},50);
+
+
+if(paso===2){
+
+indicacion.textContent=
+"💛 Haz clic una última vez...";
+
+}
+
+if(paso===3){
+
+foto.classList.add("visible");
+
+indicacion.textContent=
+"✨ Nuestro recuerdo ✨";
+
+ramo.style.pointerEvents="none";
+
+reiniciar.style.display="inline-block";
+
+}
+
+
+paso++;
+
+});
+
+
+reiniciar.addEventListener("click",()=>{
+
+paso=0;
+
+mensaje.classList.remove("visible");
+
+foto.classList.remove("visible");
+
+indicacion.textContent=
+"🌼 Haz clic en las rosas";
+
+ramo.style.pointerEvents="auto";
+
+reiniciar.style.display="none";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
 </script>
 
 </body>
